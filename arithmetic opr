@@ -1,0 +1,38 @@
+use std::io::{self, Write};
+use std::fmt::Display;
+use std::process;
+
+fn main() {
+       println!("\n");
+       println!("\t arithemetic opr in rust in Rust");
+       println!("\n");
+
+   let mut value1 = String::new();
+
+        io::stdin().read_line(&mut value1)
+            .expect("Error: Line not read");
+ let mut value2 = String::new();
+
+        io::stdin().read_line(&mut value2)
+            .expect("Error: Line not read");
+
+
+
+    let sum = value1 + value2;
+     let sub = value1 + value2;
+     let mul = value1 + value2;
+     let div = value1 + value2;
+     
+    println!("\n"); 
+    println!("The sum of {} and {} is {}. ",value1,value2,sum);
+    println!("\n"); 
+     println!("\n"); 
+    println!("The sub of {} and {} is {}. ",value1,value2,sum);
+    println!("\n"); 
+    println!("\n"); 
+    println!("The mul of {} and {} is {}. ",value1,value2,sum);
+    println!("\n"); 
+    println!("\n"); 
+    println!("The div of {} and {} is {}. ",value1,value2,sum);
+    println!("\n"); 
+}
