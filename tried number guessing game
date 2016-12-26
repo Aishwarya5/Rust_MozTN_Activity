@@ -1,0 +1,31 @@
+extern crate rand;
+
+use std::old_io;
+
+fn main() {
+    println!("Guessing Game");
+    // declaring the type in the left side of let helps random() return the right datatype
+    // An alternative is: let answer = (rand::random::<u32>() % 100) + 1;
+    let answer: u8 = (rand::random() % 100) + 1;
+    let mut guess: String;
+    let mut guess_cast: Result<u8, _>;
+
+    loop {
+        guess = guesser();
+        guess_cast = guess.trim().parse();
+
+        let guess_num = match guess_cast {
+            Ok(num) => num,
+            Err(_) => { println!("Guess was not a number, try again"); continue; }
+        };
+
+        if guess_num < answer { println!("Too low") }
+        else if guess_num > answer { println!("Too high") }
+        else { println!("You guessed it!"); return; }
+    }
+}
+
+fn guesser() -> String {
+    println!("Guess a number between 0 and 100: ");
+    old_io::stdin().read_line().ok().expect("Error getting user input")
+}
